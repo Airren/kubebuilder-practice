@@ -1,0 +1,6 @@
+domain: echo.bio.com
+layout:
+- go.kubebuilder.io/v3
+projectName: kubebuild-practice
+repo: echo.bio.com/kubebuild-practice
+version: "3"
