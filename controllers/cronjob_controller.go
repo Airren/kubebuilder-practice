@@ -18,6 +18,7 @@ package controllers
 
 import (
 	"context"
+	"time"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -31,11 +32,20 @@ import (
 type CronJobReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
+	Clock
+}
+
+type realClock struct{}
+func (_ realClock) Now() time.Time {return time.Now()}
+
+type Clock interface{
+	Now() time.Time
 }
 
 //+kubebuilder:rbac:groups=webapp.echo.bio.com,resources=cronjobs,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=webapp.echo.bio.com,resources=cronjobs/status,verbs=get;update;patch
 //+kubebuilder:rbac:groups=webapp.echo.bio.com,resources=cronjobs/finalizers,verbs=update
+
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -47,7 +57,9 @@ type CronJobReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.13.0/pkg/reconcile
 func (r *CronJobReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = log.FromContext(ctx)
+	l = log.FromContext(ctx)
+
+	l.
 
 	// TODO(user): your logic here
 
