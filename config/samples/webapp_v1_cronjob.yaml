@@ -1,0 +1,12 @@
+apiVersion: webapp.echo.bio.com/v1
+kind: CronJob
+metadata:
+  labels:
+    app.kubernetes.io/name: cronjob
+    app.kubernetes.io/instance: cronjob-sample
+    app.kubernetes.io/part-of: kubebuild-practice
+    app.kuberentes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kubebuild-practice
+  name: cronjob-sample
+spec:
+  # TODO(user): Add fields here
