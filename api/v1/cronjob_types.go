@@ -78,15 +78,15 @@ type CronJobSpec struct {
 type ConcurrencyPolicy string
 
 const (
-    // AllowConcurrent allows CronJobs to run concurrently.
-    AllowConcurrent ConcurrencyPolicy = "Allow"
+	// AllowConcurrent allows CronJobs to run concurrently.
+	AllowConcurrent ConcurrencyPolicy = "Allow"
 
-    // ForbidConcurrent forbids concurrent runs, skipping next run if previous
-    // hasn't finished yet.
-    ForbidConcurrent ConcurrencyPolicy = "Forbid"
+	// ForbidConcurrent forbids concurrent runs, skipping next run if previous
+	// hasn't finished yet.
+	ForbidConcurrent ConcurrencyPolicy = "Forbid"
 
-    // ReplaceConcurrent cancels currently running job and replaces it with a new one.
-    ReplaceConcurrent ConcurrencyPolicy = "Replace"
+	// ReplaceConcurrent cancels currently running job and replaces it with a new one.
+	ReplaceConcurrent ConcurrencyPolicy = "Replace"
 )
 
 // CronJobStatus defines the observed state of CronJob
@@ -95,12 +95,12 @@ type CronJobStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// A list of pointers to currently running jobs.
-    // +optional
-    Active []corev1.ObjectReference `json:"active,omitempty"`
+	// +optional
+	Active []corev1.ObjectReference `json:"active,omitempty"`
 
-    // Information when was the last time the job was successfully scheduled.
-    // +optional
-    LastScheduleTime *metav1.Time `json:"lastScheduleTime,omitempty"`
+	// Information when was the last time the job was successfully scheduled.
+	// +optional
+	LastScheduleTime *metav1.Time `json:"lastScheduleTime,omitempty"`
 }
 
 //+kubebuilder:object:root=true

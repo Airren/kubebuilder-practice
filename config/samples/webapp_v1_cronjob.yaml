@@ -9,4 +9,17 @@ metadata:
     app.kubernetes.io/created-by: kubebuild-practice
   name: cronjob-sample
 spec:
+  schedule: "0 * * ? * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: cron-batch-job
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: kube-cron-job
+            image: devopscube/kubernetes-job-demo:latest
+            args: ["100"]
   # TODO(user): Add fields here
