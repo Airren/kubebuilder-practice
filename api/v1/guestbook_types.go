@@ -39,6 +39,7 @@ type GuestbookSpec struct {
 	ConfigMapName string `json:"configMapName"`
 
 	// +kubebuilder:validation:Enum=Phone;Address;Name
+	// +kubebuilder:validation:Pattern:=string
 	Type string `json:"alias,omitempty"`
 }
 

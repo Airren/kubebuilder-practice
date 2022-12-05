@@ -40,6 +40,7 @@ spec:
                 - Phone
                 - Address
                 - Name
+                pattern: string
                 type: string
               configMapName:
                 description: Name of the ConfigMap for GuestbookSpec's configuration
